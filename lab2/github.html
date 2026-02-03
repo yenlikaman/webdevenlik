@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pricing Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --white: #ffffff;
+            --gray-light: #f6f8fa;
+            --gray-border: #d0d7de;
+            --dark: #1f2328;
+            --blue: #0969da;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: var(--dark);
+            line-height: 1.5;
+            margin: 0;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; }
+        .hero p { font-size: 20px; color: #636c76; max-width: 700px; margin: 0 auto 32px; }
+
+
+        button {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary { background: var(--dark); color: white; border: none; width: auto; }
+        .btn-outline { background: transparent; border: 1px solid var(--gray-border); }
+        .btn-dark { background: var(--dark); color: white; border: none; }
+
+
+        .pricing-grid {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            flex: 1;
+            padding: 32px;
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .card.recommended {
+            border: 2px solid var(--blue);
+            box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .price { font-size: 32px; font-weight: bold; margin: 24px 0; }
+        .price span { font-size: 14px; color: #636c76; }
+
+        .features { list-style: none; padding: 0; margin-top: 24px; text-align: left; }
+        .features li { margin-bottom: 12px; font-size: 14px; display: flex; align-items: flex-start; }
+        .features li::before { content: "✓"; color: #1a7f37; margin-right: 8px; font-weight: bold; }
+
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .addon-item {
+            padding: 15px;
+            border: 1px solid var(--gray-border);
+            border-radius: 6px;
+            font-size: 14px;
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        
+        @media (max-width: 850px) {
+            .pricing-grid { flex-direction: column; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>Попробуйте платформу на базе Copilot</h1>
+    <p>Мы понимаем, что с GitHub можно сделать очень многое. Поэтому мы собрали всё это в единую 30-дневную пробную версию.</p>
+    <button class="btn-primary">Начать бесплатно на 30 дней</button>
+</header>
+
+<main class="container">
+    <section class="pricing-grid">
+        <div class="card">
+            <h2>Free</h2>
+            <p class="desc">Основы для частных лиц и организаций</p>
+            <div class="price">$0 <span>USD в месяц</span></div>
+            <button class="btn-outline">Присоединиться бесплатно</button>
+            <ul class="features">
+                <li>Безлимитные публичные/приватные репозитории</li>
+                <li>Обновления безопасности Dependabot</li>
+                <li>2,000 минут CI/CD в месяц</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Team</h2>
+            <p class="desc">Продвинутое сотрудничество для команд</p>
+            <div class="price">$4 <span>USD в месяц</span></div>
+            <button class="btn-dark">Продолжить с Team</button>
+            <ul class="features">
+                <li>Все функции Free, плюс...</li>
+                <li>Доступ к GitHub Codespaces</li>
+                <li>Правила защиты веток</li>
+            </ul>
+        </div>
+
+        <div class="card recommended">
+            <span class="badge">РЕКОМЕНДУЕМО</span>
+            <h2>Enterprise</h2>
+            <p class="desc">Безопасность, комплаенс и гибкое развертывание</p>
+            <div class="price">$21 <span>USD в месяц</span></div>
+            <div class="btn-group">
+                <button class="btn-dark">Начать пробный период</button>
+                <button class="btn-outline">Связаться с отделом продаж</button>
+            </div>
+            <ul class="features">
+                <li>Все функции Team, плюс...</li>
+                <li>Управляемые пользователи Enterprise</li>
+                <li>Единый вход (SAML SSO)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="addons">
+        <h3>Дополнительные услуги</h3>
+        <div class="addons-grid">
+            <div class="addon-item">GitHub Copilot Access</div>
+            <div class="addon-item">GitHub Codespaces Access</div>
+            <div class="addon-item">Advanced Security</div>
+            <div class="addon-item">Premium Support</div>
+            <div class="addon-item">Large File Storage</div>
+            <div class="addon-item">GitHub Actions Minutes</div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
