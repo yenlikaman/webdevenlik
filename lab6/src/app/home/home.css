@@ -1,0 +1,29 @@
+.home-container {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff9e6;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #f39c12;
+  margin-bottom: 1.5rem;
+}
+
+.browse-btn {
+  background-color: #f1c40f;
+  color: #2c3e50;
+  padding: 5px 10px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px solid #f39c12;
+}
+
+.browse-btn:hover {
+  background-color: #f39c12;
+  color: white;
+}

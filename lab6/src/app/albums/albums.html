@@ -1,0 +1,26 @@
+<div class="albums-container">
+  <h1>Albums</h1>
+
+  <div *ngIf="loading$ | async" class="loading">
+    Loading albums...
+  </div>
+
+  <div *ngIf="error$ | async as error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!(loading$ | async) && (albums$ | async)?.length === 0" class="empty-state">
+    No albums found.
+  </div>
+
+  <div class="albums-grid">
+    <div *ngFor="let album of albums$ | async" class="album-card">
+      <div class="album-content" (click)="navigateToAlbum(album.id)">
+        <h3>{{ album.title }}</h3>
+        <p>Album ID: {{ album.id }}</p>
+        <p>User ID: {{ album.userId }}</p>
+      </div>
+      <button class="delete-btn" (click)="deleteAlbum(album.id, $event)">Delete</button>
+    </div>
+  </div>
+</div>

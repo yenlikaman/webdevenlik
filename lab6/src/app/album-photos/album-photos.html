@@ -1,0 +1,12 @@
+<div class="photos-container">
+  <button class="back-btn" (click)="goBack()">← Back to Album</button>
+
+  <h1>Album Photos</h1>
+
+  <div class="photos-grid" *ngIf="photos$ | async as photos">
+    <div *ngFor="let photo of photos" class="photo-card">
+      <img [src]="photo.thumbnailUrl" [alt]="photo.title" class="photo-thumbnail">
+      <div class="photo-title">{{ photo.title }}</div>
+    </div>
+  </div>
+</div>

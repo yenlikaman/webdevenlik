@@ -1,0 +1,39 @@
+<div class="detail-container" *ngIf="album$ | async as album; else loading">
+  <button class="back-btn" (click)="goBack()">← Back to Albums</button>
+
+  <div class="album-detail">
+    <h1>Album Details</h1>
+
+    <div class="detail-card">
+      <p><strong>ID:</strong> {{ album.id }}</p>
+      <p><strong>User ID:</strong> {{ album.userId }}</p>
+
+      <div class="edit-section">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          [(ngModel)]="editedTitle"
+          placeholder="Enter album title"
+        >
+      </div>
+
+      <div class="actions">
+        <button
+          class="save-btn"
+          (click)="saveTitle(album)"
+          [disabled]="editedTitle === album.title"
+        >
+          Save Changes
+        </button>
+        <button class="photos-btn" (click)="viewPhotos(album.id)">
+          View Photos
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading">Loading album details...</div>
+</ng-template>
